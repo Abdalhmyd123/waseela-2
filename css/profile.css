@@ -1,0 +1,41 @@
+/* خاص بصفحة الملف الشخصي والإعدادات */
+.hero{text-align:center;margin-bottom:16px}
+.avatar{width:84px;height:84px;margin:0 auto 10px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;
+  font-size:2rem;font-weight:700;box-shadow:0 3px 0 var(--green-deep)}
+.hero h2{margin:0;font-size:1.3rem;color:var(--ink);overflow-wrap:anywhere}
+.hero .phone{margin:2px 0 8px;color:var(--muted);font-size:.95rem;unicode-bidi:isolate}
+.role{display:inline-block;padding:2px 14px;border-radius:999px;background:#EAF3EE;color:var(--green-deep);font-weight:600;font-size:.85rem}
+.role.driver{background:#FBF3E4;color:#7A5410}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:12px}
+.stat{background:var(--field);border:1.5px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.stat b{display:block;font-size:1.35rem;color:var(--green)}
+.stat span{font-size:.82rem;color:var(--muted)}
+.subcard{display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;color:var(--ink);
+  background:var(--field);border:1.5px solid var(--gold);border-radius:14px;padding:12px 16px;margin-bottom:6px}
+.subcard small{display:block;color:var(--muted);font-size:.85rem}
+.subcard svg{color:var(--gold);flex:none}
+.subcard:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.sec{margin:24px 0 10px;font-size:1.05rem;color:var(--green)}
+.panel .field:last-of-type{margin-bottom:16px}
+.box.ro{background:#F2F0EA}
+.box.ro input{color:var(--muted)}
+.hint{margin:6px 2px 0!important;font-size:.82rem}
+.switch{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 6px;cursor:pointer}
+.switch b{font-weight:600}
+.switch small{display:block;color:var(--muted);font-size:.82rem;font-weight:400}
+.switch input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.switch i{flex:none;width:48px;height:28px;border-radius:999px;background:#CFCBC0;position:relative;transition:background .15s}
+.switch i::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:inset-inline-start .15s}
+.switch input:checked + i{background:var(--green)}
+.switch input:checked + i::after{inset-inline-start:23px}
+.switch input:focus-visible + i{outline:3px solid var(--gold);outline-offset:2px}
+.panel .form-msg{margin-top:10px}
+.out{width:100%;margin-top:22px;border:1.5px solid var(--maroon);background:transparent;color:var(--maroon);font:inherit;font-weight:600;padding:13px;border-radius:12px;cursor:pointer}
+.out:hover{background:var(--maroon);color:#fff}
+.out:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.del{margin-top:20px;border:1.5px dashed var(--line);border-radius:14px;padding:12px 16px}
+.del summary{cursor:pointer;color:var(--maroon);font-weight:600}
+.del summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.del p{color:var(--muted);font-size:.9rem;margin:10px 0}
+.del .box{margin-bottom:12px}
+@media (prefers-reduced-motion:reduce){.switch i,.switch i::after{transition:none}}

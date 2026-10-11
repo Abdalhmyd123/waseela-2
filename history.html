@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A6640">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/request.css">
+<link rel="stylesheet" href="css/trips.css">
+<title>سجل رحلاتي — وسيلة</title>
+<link rel="stylesheet" href="css/nav.css">
+</head><body>
+<header class="bar">
+  <a class="back" href="home.html" aria-label="الرجوع للرئيسية">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <h1>سجل رحلاتي</h1>
+  <span class="count" id="count" hidden></span>
+</header>
+
+<main>
+  <section id="driverView" hidden class="panel">
+    <h2>هذه الصفحة للعملاء</h2>
+    <p>حسابك مسجَّل ككابتن. يمكنك متابعة طلباتك من صفحة الطلبات المتاحة.</p>
+    <a class="cta as-link" href="orders.html">الطلبات المتاحة</a>
+  </section>
+
+  <div id="riderView" hidden>
+    <div class="stats" id="stats"></div>
+
+    <div class="tabs" id="tabs" role="radiogroup" aria-label="تصفية الرحلات"></div>
+
+    <ul class="trips" id="trips"></ul>
+    <section id="emptyView" hidden class="panel empty">
+      <h2 id="emptyTitle">لا توجد رحلات بعد</h2>
+      <p id="emptyText">ستظهر رحلاتك هنا بعد أن تطلب أول ركشة.</p>
+      <a class="cta as-link" id="emptyCta" href="request.html">اطلب ركشة</a>
+    </section>
+  </div>
+</main>
+
+<script src="js/store.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/history.js"></script>
+</body></html>

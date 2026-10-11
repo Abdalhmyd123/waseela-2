@@ -1,0 +1,65 @@
+/* خاص بصفحة طلب الركشة */
+.bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:6px;padding:10px 14px;
+  background:var(--bg);border-bottom:1px solid var(--line)}
+.bar h1{margin:0;font-size:1.2rem;color:var(--green);text-align:start}
+.back{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:var(--green)}
+.back:hover{background:#EAF3EE}
+.back:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{padding-top:22px;padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+[hidden]{display:none!important}
+
+textarea{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;color:inherit;padding:12px 14px;resize:none}
+textarea::placeholder{color:#A39F95}
+input[type=number]{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;color:inherit;padding:14px;
+  direction:ltr;text-align:left;-moz-appearance:textfield}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+input[type=datetime-local]{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;color:inherit;padding:12px 14px}
+.suffix{border-right:0;border-left:1.5px solid var(--line);font-size:.85rem;color:var(--muted);font-weight:500}
+
+/* عدد الركاب + السعر في سطر واحد */
+.row2{display:grid;grid-template-columns:auto 1fr;gap:12px 16px;align-items:end}
+.row2 .wide{grid-column:1/-1;margin:-6px 2px 0}
+.stepper{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;background:var(--field);overflow:hidden;height:50px}
+.stepper button{width:46px;height:100%;border:0;background:#F2F0EA;color:var(--green-deep);font:inherit;font-size:1.3rem;font-weight:600;cursor:pointer}
+.stepper button:hover:not(:disabled){background:#E5E2D8}
+.stepper button:disabled{opacity:.4;cursor:not-allowed}
+.stepper button:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.stepper output{min-width:46px;text-align:center;font-weight:700;font-size:1.1rem}
+
+/* خيارات مقسّمة */
+.seg-group{border:0;margin:0 0 16px;padding:0}
+.seg-group legend{padding:0;margin-bottom:6px;font-weight:500;font-size:.92rem}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{position:relative;margin:0}
+.opt input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.opt span{display:block;text-align:center;padding:12px 8px;border:1.5px solid var(--line);border-radius:12px;background:var(--field);
+  font-weight:500;transition:border-color .15s,background .15s,color .15s}
+.opt input:checked + span{border-color:var(--green);background:#EAF3EE;color:var(--green-deep)}
+.opt input:focus-visible + span{outline:3px solid var(--gold);outline-offset:2px}
+.later{margin-top:10px}
+
+/* عرض الطلب النشط */
+.panel{background:var(--field);border:1.5px solid var(--line);border-radius:16px;padding:20px 18px}
+.panel h2{margin:4px 0 12px;font-size:1.25rem;color:var(--green)}
+.panel p{margin:0 0 16px;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:8px;background:#FBF3E4;color:#7A5410!important;border-radius:999px;
+  padding:4px 14px;font-weight:600;font-size:.88rem;margin:0!important}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold);animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.8)}}
+.trip{margin:0 0 6px}
+.trip div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.trip div:last-child{border-bottom:0}
+.trip dt{color:var(--muted);font-size:.9rem;flex:none}
+.trip dd{margin:0;font-weight:600;text-align:end;overflow-wrap:anywhere}
+.hint{font-size:.85rem;margin:10px 0 14px!important}
+.danger{width:100%;border:1.5px solid var(--maroon);background:transparent;color:var(--maroon);font:inherit;font-weight:600;
+  padding:13px;border-radius:12px;cursor:pointer}
+.danger:hover{background:var(--maroon);color:#fff}
+.danger:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.as-link{display:block;text-align:center;text-decoration:none}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+
+.share{width:100%;border:1.5px solid var(--green);background:transparent;color:var(--green);font:inherit;font-weight:600;padding:12px;border-radius:12px;cursor:pointer;margin-bottom:4px}
+.share:hover:not([disabled]){background:#EAF3EE}
+.share[disabled]{opacity:.6;cursor:progress}
+.share:focus-visible{outline:3px solid var(--gold);outline-offset:2px}

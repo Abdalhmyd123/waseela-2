@@ -1,0 +1,45 @@
+/* مشترك بين صفحتَي «أماكني» و«سجل رحلاتي» */
+.bar .count{margin-inline-start:auto;background:var(--green);color:#fff;border-radius:999px;padding:2px 12px;font-weight:700;font-size:.9rem}
+.intro{margin:0 0 16px;color:var(--muted);font-size:.95rem}
+.sec{margin:24px 0 10px;font-size:1.05rem;color:var(--green)}
+.sec.first{margin-top:0}
+.empty{text-align:center}
+.empty h2{color:var(--muted)}
+.empty a:not(.cta){color:var(--green);font-weight:600}
+.panel .form-msg{margin-top:10px}
+.form-msg.ok{color:var(--green)}
+
+/* أماكني */
+.favs,.trips{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.fav,.trip-card{background:var(--field);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px}
+.fav h4{margin:0 0 8px;font-size:1.05rem;color:var(--green-deep);overflow-wrap:anywhere}
+.fav .route,.trip-card .route{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:start;margin:0 0 12px}
+.route i{font-style:normal;color:var(--muted);font-size:.85rem;padding-top:2px}
+.route b{font-weight:600;overflow-wrap:anywhere}
+.actions{display:flex;gap:10px}
+.actions .cta,.actions .ghost{flex:1;padding:11px 8px;font-size:.95rem;text-align:center;text-decoration:none;border-radius:12px;font:inherit;font-weight:600;cursor:pointer}
+.actions .cta{border:0;display:block}
+.actions .ghost{border:1.5px solid var(--maroon);background:transparent;color:var(--maroon)}
+.actions .ghost:hover{background:var(--maroon);color:#fff}
+.actions .ghost.green{border-color:var(--green);color:var(--green)}
+.actions .ghost.green:hover{background:var(--green);color:#fff}
+a.ghost{display:block;text-decoration:none}
+.actions .ghost:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* السجل */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.stat{background:var(--field);border:1.5px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.stat b{display:block;font-size:1.35rem;color:var(--green)}
+.stat span{font-size:.82rem;color:var(--muted)}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.tabs .opt span{padding:9px 2px;font-size:.88rem}
+.trip-card .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;font-size:.85rem;color:var(--muted)}
+.st{font-weight:700;border-radius:999px;padding:2px 12px;font-size:.8rem}
+.st.completed{background:#EAF3EE;color:var(--green-deep)}
+.st.pending,.st.accepted{background:#FBF3E4;color:#7A5410}
+.st.cancelled{background:#F6E6E4;color:var(--maroon)}
+.facts{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.88rem;margin-bottom:10px}
+.facts strong{color:var(--ink)}
+.cap{margin:0 0 12px;padding-top:10px;border-top:1px solid var(--line);font-size:.9rem;color:var(--gold);font-weight:600}
+.cap a{color:var(--green);text-decoration:none;border-bottom:1.5px solid rgba(10,102,64,.35)}
+.saved-note{align-self:center;flex:1;text-align:center;color:var(--green);font-size:.9rem;font-weight:600}

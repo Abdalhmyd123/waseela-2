@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A6640">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/login.css">
+<title>تسجيل الدخول — وسيلة</title>
+</head><body>
+<main>
+  <img class="logo" src="assets/logo.svg" alt="شعار وسيلة">
+  <div class="stagger">
+    <h1 id="title">تسجيل الدخول</h1>
+    <p class="sub" id="sub">ادخل برقم هاتفك وأطلب ركشتك.</p>
+
+    <div class="tabs" role="tablist" aria-label="الدخول أو إنشاء حساب">
+      <button type="button" role="tab" id="tabLogin" aria-selected="true" aria-controls="login">دخول</button>
+      <button type="button" role="tab" id="tabSignup" aria-selected="false" aria-controls="signup">حساب جديد</button>
+    </div>
+
+    <!-- تسجيل الدخول -->
+    <form id="login" role="tabpanel" aria-labelledby="tabLogin" novalidate>
+      <div class="field">
+        <label for="phone">رقم الهاتف</label>
+        <div class="box ltr" id="phoneBox">
+          <span class="prefix" dir="ltr" aria-hidden="true">&#43;249</span>
+          <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="9XX XXX XXX" aria-describedby="phoneErr" required>
+        </div>
+        <p class="msg" id="phoneErr" role="alert"></p>
+      </div>
+
+      <div class="field" id="passField" hidden>
+        <label for="pass">كلمة المرور</label>
+        <div class="box" id="passBox">
+          <input id="pass" name="password" type="password" autocomplete="current-password" aria-describedby="passErr">
+          <button type="button" class="toggle" id="toggle" aria-controls="pass" aria-pressed="false">إظهار</button>
+        </div>
+        <p class="msg" id="passErr" role="alert"></p>
+      </div>
+
+      <button class="cta" id="submit" type="submit">تسجيل الدخول</button>
+      <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+    </form>
+
+    <!-- إنشاء حساب: الاسم + الهاتف + نوع الحساب (راكب / سائق) -->
+    <form id="signup" role="tabpanel" aria-labelledby="tabSignup" hidden novalidate>
+      <div class="field">
+        <label for="sName">الاسم</label>
+        <div class="box" id="sNameBox">
+          <input id="sName" name="name" type="text" autocomplete="name" aria-describedby="sNameErr" required>
+        </div>
+        <p class="msg" id="sNameErr" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="sPhone">رقم الهاتف</label>
+        <div class="box ltr" id="sPhoneBox">
+          <span class="prefix" dir="ltr" aria-hidden="true">&#43;249</span>
+          <input id="sPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="9XX XXX XXX" aria-describedby="sPhoneErr" required>
+        </div>
+        <p class="msg" id="sPhoneErr" role="alert"></p>
+      </div>
+
+      <fieldset class="field roles">
+        <legend>سجّل كـ</legend>
+        <label class="role"><input type="radio" name="role" value="rider" checked><span>راكب<small>أطلب ركشة</small></span></label>
+        <label class="role"><input type="radio" name="role" value="driver"><span>سائق ركشة<small>أستقبل الطلبات</small></span></label>
+      </fieldset>
+
+      <button class="cta" id="sSubmit" type="submit">إنشاء الحساب</button>
+      <p class="form-msg" id="sFormMsg" role="status" aria-live="polite"></p>
+      <p class="fine">بإنشاء الحساب فأنت توافق على شروط استخدام وسيلة وسياسة الخصوصية.</p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p id="footP">ما عندك حساب؟</p>
+  <button type="button" class="ghost" id="footBtn">إنشاء حساب</button>
+</footer>
+
+<script src="js/store.js"></script>
+<script src="js/login.js"></script>
+</body></html>

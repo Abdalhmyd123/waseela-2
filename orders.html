@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A6640">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/request.css">
+<link rel="stylesheet" href="css/orders.css">
+<title>الطلبات المتاحة — وسيلة</title>
+<link rel="stylesheet" href="css/nav.css">
+</head><body>
+<header class="bar">
+  <a class="back" href="home.html" aria-label="الرجوع للرئيسية">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <h1>الطلبات المتاحة</h1>
+  <span class="count" id="count" hidden></span>
+</header>
+
+<main>
+  <!-- حساب راكب -->
+  <section id="riderView" hidden class="panel">
+    <h2>هذه الصفحة للكباتن</h2>
+    <p>حسابك مسجَّل كراكب. لطلب ركشة استخدم صفحة الطلب.</p>
+    <a class="cta as-link" href="request.html">اطلب ركشة</a>
+  </section>
+
+  <div id="driverView" hidden>
+    <!-- الرحلة الحالية -->
+    <section id="tripView" hidden class="panel trip-now">
+      <p class="status ok"><span class="dot" aria-hidden="true"></span>رحلتك الحالية</p>
+      <h2 id="tName"></h2>
+      <dl class="trip">
+        <div><dt>من</dt><dd id="tFrom"></dd></div>
+        <div><dt>إلى</dt><dd id="tTo"></dd></div>
+        <div><dt>الركاب</dt><dd id="tPax"></dd></div>
+        <div><dt>الدفع</dt><dd id="tPay"></dd></div>
+        <div id="tFareRow"><dt>السعر</dt><dd id="tFare"></dd></div>
+        <div id="tNotesRow"><dt>ملاحظات</dt><dd id="tNotes"></dd></div>
+      </dl>
+      <p class="dist" id="tDist" hidden></p>
+      <div class="maplinks">
+        <a class="maplink" id="tMapFrom" href="#" target="_blank" rel="noopener"></a>
+        <a class="maplink alt" id="tMapTo" href="#" target="_blank" rel="noopener">فتح الوجهة في الخرائط</a>
+      </div>
+      <button class="cta" id="finishBtn" type="button">إنهاء الرحلة</button>
+    </section>
+
+    <p class="busy" id="busyNote" hidden>أنهِ رحلتك الحالية أولاً لتقبل طلباً جديداً.</p>
+
+    <div class="locbar">
+      <button class="locbtn" id="locBtn" type="button">حدّد موقعي لعرض المسافة للركاب</button>
+      <p class="hint" id="locNote" role="status" aria-live="polite" hidden></p>
+    </div>
+    <ul class="orders" id="orders"></ul>
+    <section id="emptyView" hidden class="panel empty">
+      <h2>لا توجد طلبات الآن</h2>
+      <p>ستظهر الطلبات الجديدة هنا تلقائياً.</p>
+    </section>
+    <p class="form-msg" id="msg" role="status" aria-live="polite"></p>
+  </div>
+</main>
+
+<script src="js/store.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/orders.js"></script>
+</body></html>

@@ -1,0 +1,37 @@
+/* خاص بصفحة الطلبات المتاحة للكابتن */
+.bar .count{margin-inline-start:auto;background:var(--green);color:#fff;border-radius:999px;padding:2px 12px;font-weight:700;font-size:.9rem}
+.orders{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.order{background:var(--field);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px}
+.order .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.tag{font-size:.8rem;font-weight:600;border-radius:999px;padding:2px 10px;background:#F2F0EA;color:var(--muted)}
+.tag.now{background:#EAF3EE;color:var(--green-deep)}
+.tag.later{background:#FBF3E4;color:#7A5410}
+.route{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:start;margin:0 0 10px}
+.route i{font-style:normal;color:var(--muted);font-size:.85rem;padding-top:2px}
+.route b{font-weight:600;overflow-wrap:anywhere}
+.facts{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.88rem;margin-bottom:12px}
+.facts strong{color:var(--ink)}
+.note-line{margin:-4px 0 12px;color:var(--muted);font-size:.88rem;overflow-wrap:anywhere}
+.order .cta{padding:12px}
+.order .cta[disabled]{opacity:.5;cursor:not-allowed;box-shadow:none}
+.trip-now{margin-bottom:18px;border-color:var(--green)}
+.status.ok{background:#EAF3EE;color:var(--green-deep)!important}
+.busy{margin:0 0 12px;padding:10px 14px;background:#FBF3E4;border-radius:12px;color:#7A5410;font-size:.9rem;font-weight:500}
+.empty{text-align:center}
+.empty h2{color:var(--muted)}
+
+/* الموقع والخرائط للكابتن */
+.locbar{margin:0 0 12px}
+.locbtn{width:100%;border:1.5px solid var(--green);background:transparent;color:var(--green);font:inherit;font-weight:600;padding:11px;border-radius:12px;cursor:pointer}
+.locbtn:hover:not([disabled]){background:#EAF3EE}
+.locbtn[disabled]{opacity:.6;cursor:progress}
+.locbtn:focus-visible,.maplink:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.locbar .hint{margin:8px 0 0!important}
+.maploc{margin:0 0 12px}
+.maplinks{display:grid;gap:8px;margin:0 0 14px}
+.maplink{display:block;text-align:center;text-decoration:none;font-weight:600;font-size:.95rem;color:#fff;background:#0B1B3A;border-radius:12px;padding:11px 8px}
+.maplink:hover{background:#13294f}
+.maplink.alt{background:transparent;color:#0B1B3A;border:1.5px solid #0B1B3A}
+.maplink.alt:hover{background:#EEF1F6}
+.locinfo{margin:6px 2px 0;color:var(--muted);font-size:.82rem}
+.dist{margin:6px 0 12px;color:var(--green-deep);font-weight:600;font-size:.9rem}

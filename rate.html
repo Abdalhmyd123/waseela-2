@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A6640">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/request.css">
+<link rel="stylesheet" href="css/rate.css">
+<title>تقييم الكابتن — وسيلة</title>
+</head><body>
+<header class="bar">
+  <a class="back" href="home.html" aria-label="الرجوع للرئيسية">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <h1>تقييم الكابتن</h1>
+</header>
+
+<main>
+  <!-- حساب سائق -->
+  <section id="driverView" hidden class="panel">
+    <h2>هذه الصفحة للركاب</h2>
+    <p>تقييم الكابتن يقوم به الراكب بعد انتهاء الرحلة.</p>
+    <a class="cta as-link" href="home.html">الرجوع للرئيسية</a>
+  </section>
+
+  <!-- لا توجد رحلة للتقييم -->
+  <section id="emptyView" hidden class="panel">
+    <h2>لا توجد رحلة تنتظر التقييم</h2>
+    <p>بعد ما تنتهي رحلتك سيظهر لك هنا خيار تقييم الكابتن.</p>
+    <a class="cta as-link" href="home.html">الرجوع للرئيسية</a>
+  </section>
+
+  <!-- شكراً -->
+  <section id="doneView" hidden class="panel done">
+    <div class="check" aria-hidden="true">✓</div>
+    <h2>شكراً لتقييمك</h2>
+    <p id="doneText"></p>
+    <div class="stars-static" id="doneStars" aria-hidden="true"></div>
+    <a class="cta as-link" href="home.html">الرجوع للرئيسية</a>
+  </section>
+
+  <!-- نموذج التقييم -->
+  <form id="rateForm" novalidate hidden>
+    <div class="captain">
+      <div class="avatar" id="cAvatar" aria-hidden="true"></div>
+      <div>
+        <p class="cname" id="cName"></p>
+        <p class="ctrip" id="cTrip"></p>
+      </div>
+    </div>
+
+    <fieldset class="seg-group">
+      <legend>كيف كانت رحلتك مع الكابتن؟</legend>
+      <div class="stars" id="stars">
+        <label><input type="radio" name="stars" value="1"><span aria-hidden="true">★</span><b class="sr">نجمة واحدة</b></label>
+        <label><input type="radio" name="stars" value="2"><span aria-hidden="true">★</span><b class="sr">نجمتان</b></label>
+        <label><input type="radio" name="stars" value="3"><span aria-hidden="true">★</span><b class="sr">3 نجوم</b></label>
+        <label><input type="radio" name="stars" value="4"><span aria-hidden="true">★</span><b class="sr">4 نجوم</b></label>
+        <label><input type="radio" name="stars" value="5"><span aria-hidden="true">★</span><b class="sr">5 نجوم</b></label>
+      </div>
+      <p class="star-word" id="starWord" aria-live="polite">اضغط على النجوم لتقييم الرحلة</p>
+      <p class="msg" id="starErr" role="alert"></p>
+    </fieldset>
+
+    <fieldset class="seg-group" id="tagsWrap" hidden>
+      <legend id="tagsLegend">ما الذي أعجبك؟</legend>
+      <div class="chips" id="chips"></div>
+    </fieldset>
+
+    <div class="field">
+      <label for="comment">تعليق (اختياري)</label>
+      <div class="box">
+        <textarea id="comment" rows="3" maxlength="300" placeholder="اكتب رأيك في الرحلة"></textarea>
+      </div>
+    </div>
+
+    <button class="cta" id="submit" type="submit">إرسال التقييم</button>
+    <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+  </form>
+</main>
+
+<script src="js/store.js"></script>
+<script src="js/rate.js"></script>
+</body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A6640">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/request.css">
+<link rel="stylesheet" href="css/subscription.css">
+<title>اشتراك الكابتن — وسيلة</title>
+<link rel="stylesheet" href="css/nav.css">
+</head><body>
+<header class="bar">
+  <a class="back" href="home.html" aria-label="الرجوع للرئيسية">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <h1>اشتراك الكابتن</h1>
+</header>
+
+<main>
+  <!-- حساب راكب -->
+  <section id="riderView" hidden class="panel">
+    <h2>الاشتراك للكباتن فقط</h2>
+    <p>حسابك مسجَّل كراكب، والاشتراك لا ينطبق عليه.</p>
+    <a class="cta as-link" href="request.html">اطلب ركشة</a>
+  </section>
+
+  <div id="driverView" hidden>
+    <section class="panel state" id="stateBox" aria-live="polite">
+      <p class="status" id="stateTag"></p>
+      <h2 id="stateTitle"></h2>
+      <p id="stateText"></p>
+    </section>
+
+    <h3 class="sec">اختر الباقة</h3>
+    <div class="plans" id="plans" role="radiogroup" aria-label="الباقات"></div>
+
+    <!-- العرض المجاني -->
+    <button class="cta" id="trialBtn" type="button" hidden>فعّل العرض المجاني</button>
+
+    <!-- الدفع للباقات المدفوعة -->
+    <section id="payView" hidden>
+      <h3 class="sec">طريقة الدفع</h3>
+      <div class="methods" id="methods" role="radiogroup" aria-label="طريقة الدفع"></div>
+
+      <div class="panel pay">
+        <dl class="trip">
+          <div><dt>المبلغ</dt><dd id="pAmount"></dd></div>
+          <div><dt id="pAccLabel">رقم الحساب</dt><dd class="acc"><span id="pAcc" dir="ltr"></span><button class="copy" id="copyBtn" type="button" hidden>نسخ</button></dd></div>
+        </dl>
+        <p class="hint" id="accWarn" hidden>لم يُضبط رقم الحساب لهذه الطريقة بعد، لا تحوّل قبل ظهوره.</p>
+        <ol class="steps">
+          <li>حوّل المبلغ بالضبط إلى الرقم أعلاه.</li>
+          <li>اكتب رقم العملية (أو رقم هاتفك الذي حوّلت منه) في الخانة التالية.</li>
+          <li>اضغط «إرسال الطلب»، وسيُفعَّل اشتراكك بعد تأكيد الإدارة للدفع.</li>
+        </ol>
+        <label class="lbl" for="ref">رقم العملية أو رقم الهاتف المحوَّل منه</label>
+        <div class="box"><input id="ref" type="text" inputmode="text" autocomplete="off" maxlength="40" dir="ltr"></div>
+        <button class="cta" id="sendBtn" type="button">إرسال الطلب</button>
+      </div>
+    </section>
+
+    <p class="form-msg" id="msg" role="status" aria-live="polite"></p>
+
+    <section id="histView" hidden>
+      <h3 class="sec">طلباتي</h3>
+      <ul class="hist" id="hist"></ul>
+    </section>
+  </div>
+</main>
+
+<script src="js/store.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/subscription.js"></script>
+</body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B1B3A">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/request.css">
+<link rel="stylesheet" href="css/admin.css">
+<title>لوحة الإدارة — وسيلة</title>
+</head><body>
+
+<!-- بوابة الدخول / الإعداد الأول -->
+<main id="gate" hidden class="gate">
+  <img class="logo" src="assets/logo.svg" alt="شعار وسيلة">
+  <h1 id="gateTitle"></h1>
+  <p class="sub" id="gateSub"></p>
+  <form id="gateForm" novalidate>
+    <div class="field">
+      <label for="gUser">اسم المستخدم</label>
+      <div class="box"><input id="gUser" type="text" dir="ltr" autocomplete="username" autocapitalize="off" spellcheck="false"></div>
+    </div>
+    <div class="field">
+      <label for="gPass">كلمة المرور</label>
+      <div class="box"><input id="gPass" type="password" autocomplete="current-password"></div>
+    </div>
+    <button class="cta" id="gateBtn" type="submit"></button>
+    <p class="form-msg" id="gateMsg" role="alert"></p>
+  </form>
+  <p class="note">لا يوجد خادم بعد: هذه اللوحة تعرض بيانات هذا الجهاز فقط، وحمايتها على مستوى المتصفح.</p>
+</main>
+
+<!-- اللوحة -->
+<div id="dash" hidden>
+  <header class="abar">
+    <div class="abar-in">
+      <h1>لوحة الإدارة</h1>
+      <button class="exit" id="exit" type="button">خروج</button>
+    </div>
+    <div class="tabs" id="tabs" role="tablist" aria-label="أقسام الإدارة"></div>
+  </header>
+
+  <main class="wrap">
+    <p class="warn" id="defaultWarn" hidden>تنبيه: ما زلت تستخدم كلمة المرور الافتراضية (Admin). غيّرها من «الإعدادات» لحماية اللوحة.</p>
+    <section id="t-overview" hidden>
+      <div class="grid" id="ovGrid"></div>
+    </section>
+
+    <section id="t-payments" hidden>
+      <div class="filters" id="payFilters" role="radiogroup" aria-label="تصفية الدفعات"></div>
+      <ul class="list" id="payList"></ul>
+      <p class="empty" id="payEmpty" hidden></p>
+    </section>
+
+    <section id="t-users" hidden>
+      <div class="toolbar">
+        <div class="box"><input id="uSearch" type="search" placeholder="ابحث بالاسم أو الرقم" aria-label="بحث في المستخدمين" autocomplete="off"></div>
+        <div class="filters" id="uFilters" role="radiogroup" aria-label="تصفية المستخدمين"></div>
+      </div>
+      <ul class="list" id="uList"></ul>
+      <p class="empty" id="uEmpty" hidden>لا يوجد مستخدمون مطابقون.</p>
+    </section>
+
+    <section id="t-requests" hidden>
+      <div class="filters" id="rFilters" role="radiogroup" aria-label="تصفية الطلبات"></div>
+      <ul class="list" id="rList"></ul>
+      <p class="empty" id="rEmpty" hidden>لا توجد طلبات في هذا التصنيف.</p>
+    </section>
+
+    <section id="t-settings" hidden>
+      <form class="panel" id="cfgForm" novalidate>
+        <h2>الأسعار والعرض المجاني</h2>
+        <div class="two">
+          <div class="field"><label for="cDay">سعر اليوم</label><div class="box ltr"><input id="cDay" type="number" inputmode="numeric" min="1"><span class="prefix suffix" dir="rtl">جنيه</span></div></div>
+          <div class="field"><label for="cWeek">سعر الأسبوع</label><div class="box ltr"><input id="cWeek" type="number" inputmode="numeric" min="1"><span class="prefix suffix" dir="rtl">جنيه</span></div></div>
+          <div class="field"><label for="cMonth">سعر الشهر</label><div class="box ltr"><input id="cMonth" type="number" inputmode="numeric" min="1"><span class="prefix suffix" dir="rtl">جنيه</span></div></div>
+          <div class="field"><label for="cTrial">مدة العرض المجاني</label><div class="box ltr"><input id="cTrial" type="number" inputmode="numeric" min="1" max="30"><span class="prefix suffix" dir="rtl">يوم</span></div></div>
+        </div>
+        <h2>أرقام الدفع</h2>
+        <div class="two">
+          <div class="field"><label for="aBankak">رقم بنكك</label><div class="box"><input id="aBankak" type="text" dir="ltr" maxlength="30" autocomplete="off"></div></div>
+          <div class="field"><label for="aMycashi">رقم ماي كاشي</label><div class="box"><input id="aMycashi" type="text" dir="ltr" maxlength="30" autocomplete="off"></div></div>
+          <div class="field"><label for="aFawry">رقم فوري</label><div class="box"><input id="aFawry" type="text" dir="ltr" maxlength="30" autocomplete="off"></div></div>
+        </div>
+        <button class="cta" type="submit">حفظ الإعدادات</button>
+        <p class="form-msg" id="cfgMsg" role="status" aria-live="polite"></p>
+      </form>
+
+      <form class="panel" id="pwForm" novalidate>
+        <h2>حساب المسؤول</h2>
+        <div class="two">
+          <div class="field"><label for="pUser">اسم المستخدم</label><div class="box"><input id="pUser" type="text" dir="ltr" autocomplete="username" autocapitalize="off" spellcheck="false"></div></div>
+          <div class="field"><label for="pOld">كلمة المرور الحالية</label><div class="box"><input id="pOld" type="password" autocomplete="current-password"></div></div>
+          <div class="field"><label for="pNew">كلمة المرور الجديدة (8 أحرف أو أكثر — اتركها فارغة لعدم التغيير)</label><div class="box"><input id="pNew" type="password" autocomplete="new-password"></div></div>
+        </div>
+        <button class="cta" type="submit">حفظ بيانات الدخول</button>
+        <p class="form-msg" id="pwMsg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+</div>
+
+<script src="js/store.js"></script>
+<script src="js/admin.js"></script>
+</body></html>

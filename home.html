@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A6640">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/nav.css">
+<title>الرئيسية — وسيلة</title>
+</head><body>
+<header class="top">
+  <div class="hello">
+    <p class="when" id="when"></p>
+    <h1 id="hello">أهلاً بك</h1>
+  </div>
+  <a class="avatar" id="avatar" href="profile.html" aria-label="الملف الشخصي"></a>
+</header>
+
+<main>
+  <p class="storewarn" id="storeWarn" hidden>المتصفح يمنع التخزين المحلي، فالبيانات ستضيع عند إغلاق الصفحة.</p>
+
+  <!-- ===== العميل ===== -->
+  <div id="riderHome" hidden>
+    <section class="card now" id="rActive" hidden>
+      <div class="row"><span class="chip" id="rStatus"></span><span class="muted" id="rAge"></span></div>
+      <div class="route"><i>من</i><b id="rFrom"></b><i>إلى</i><b id="rTo"></b></div>
+      <p class="driver" id="rDriver" hidden></p>
+      <a class="btn" href="request.html">تفاصيل الطلب</a>
+    </section>
+
+    <a class="ask" id="rAsk" href="request.html">
+      <span><b>اطلب ركشة</b><small>وين رايح اليوم؟</small></span>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+
+    <a class="rate" id="rRate" href="rate.html" hidden>
+      <span id="rRateText"></span><b>قيّم الآن ★</b>
+    </a>
+
+    <section class="block">
+      <div class="head"><h2>أماكني</h2><a href="places.html">الكل</a></div>
+      <div class="chips" id="rFavs"></div>
+      <p class="hint" id="rFavsEmpty" hidden>احفظ مشاويرك المهمة (البيت، الشغل، الجامعة) لتطلب ركشتك بضغطة واحدة. <a href="places.html">أضف مشواراً</a></p>
+    </section>
+
+    <section class="block">
+      <div class="head"><h2>آخر رحلاتي</h2><a href="history.html">السجل</a></div>
+      <ul class="trips" id="rTrips"></ul>
+      <p class="hint" id="rTripsEmpty" hidden>لا توجد رحلات بعد. ستظهر هنا رحلاتك الأخيرة.</p>
+    </section>
+  </div>
+
+  <!-- ===== الكابتن ===== -->
+  <div id="driverHome" hidden>
+    <a class="sub" id="dSub" href="subscription.html">
+      <span><b id="dSubTitle"></b><small id="dSubText"></small></span>
+      <em id="dSubBtn">الاشتراك</em>
+    </a>
+
+    <section class="card now" id="dTrip" hidden>
+      <div class="row"><span class="chip">رحلتك الحالية</span><span class="muted" id="dTripAge"></span></div>
+      <h3 id="dTripName"></h3>
+      <div class="route"><i>من</i><b id="dFrom"></b><i>إلى</i><b id="dTo"></b></div>
+      <p class="driver" id="dTripFare" hidden></p>
+      <a class="btn map" id="dMap" href="#" target="_blank" rel="noopener">فتح موقع الراكب في الخرائط</a>
+      <a class="btn" href="orders.html">إدارة الرحلة وإنهاؤها</a>
+    </section>
+
+    <div class="stats" id="dStats"></div>
+
+    <a class="ask" id="dAsk" href="orders.html">
+      <span><b>الطلبات المتاحة</b><small id="dAskText"></small></span>
+      <i class="badge" id="dBadge" hidden></i>
+    </a>
+
+    <section class="block">
+      <div class="head"><h2>آخر رحلاتي</h2></div>
+      <ul class="trips" id="dTrips"></ul>
+      <p class="hint" id="dTripsEmpty" hidden>لم تُنجز رحلات بعد. اقبل أول طلب من الطلبات المتاحة.</p>
+    </section>
+  </div>
+</main>
+
+<script src="js/store.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/home.js"></script>
+</body></html>

@@ -1,0 +1,39 @@
+/* خاص بصفحة اشتراك الكابتن */
+.sec{margin:22px 0 10px;font-size:1.05rem;color:var(--green)}
+.state{margin-bottom:6px}
+.state.on{border-color:var(--green)}
+.state .status.on{background:#EAF3EE;color:var(--green-deep)!important}
+.state p:last-child{margin-bottom:0}
+.plans{display:grid;gap:10px;margin-bottom:14px}
+.plan{position:relative;display:block;margin:0}
+.plan input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.plan .pbox{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1.5px solid var(--line);
+  border-radius:14px;background:var(--field);transition:border-color .15s,background .15s}
+.plan input:checked + .box{border-color:var(--green);background:#EAF3EE}
+.plan input:focus-visible + .box{outline:3px solid var(--gold);outline-offset:2px}
+.plan input:disabled{cursor:not-allowed}
+.plan input:disabled + .box{opacity:.55}
+.plan .nm{font-weight:600}
+.plan .nm small{display:block;color:var(--muted);font-weight:400;font-size:.82rem}
+.plan .pr{font-weight:700;color:var(--green-deep);white-space:nowrap}
+.plan.free .box{border-style:dashed;border-color:var(--gold)}
+.plan.free input:checked + .box{border-style:solid}
+.plan.free .pr{color:#7A5410}
+.methods{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.methods .opt span{padding:12px 4px;font-size:.92rem}
+.pay{margin-bottom:6px}
+.acc{display:flex;align-items:center;gap:10px;justify-content:flex-end}
+.acc #pAcc{letter-spacing:.04em}
+.copy{border:1.5px solid var(--green);background:transparent;color:var(--green);font:inherit;font-size:.8rem;font-weight:600;
+  border-radius:8px;padding:2px 10px;cursor:pointer}
+.copy:hover{background:var(--green);color:#fff}
+.copy:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.steps{margin:6px 0 16px;padding-inline-start:20px;color:var(--muted);font-size:.9rem}
+.steps li{margin-bottom:4px}
+.lbl{display:block;margin-bottom:6px;font-weight:500;font-size:.92rem}
+.pay .box{margin-bottom:14px}
+.hist{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:10px}
+.hist li{background:var(--field);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+.hist .top{display:flex;justify-content:space-between;gap:10px;font-weight:600}
+.hist .meta{margin-top:4px;font-size:.85rem;color:var(--muted)}
+.b-pending{color:#7A5410}.b-approved{color:var(--green)}.b-rejected{color:var(--maroon)}

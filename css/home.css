@@ -1,0 +1,78 @@
+/* الصفحة الرئيسية: تتغير حسب نوع الحساب (عميل / كابتن) */
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);
+  font-family:"Readex Pro",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;line-height:1.6}
+[hidden]{display:none!important}
+.top{max-width:440px;margin:0 auto;padding:18px 20px 6px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hello .when{margin:0;color:var(--muted);font-size:.88rem}
+.hello h1{margin:0;font-size:1.45rem;line-height:1.3;color:var(--green);overflow-wrap:anywhere}
+.avatar{flex:none;width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;
+  font-size:1.2rem;font-weight:700;text-decoration:none;box-shadow:0 2px 0 var(--green-deep)}
+.avatar:focus-visible,.ask:focus-visible,.btn:focus-visible,.sub:focus-visible,.rate:focus-visible,.fav:focus-visible,.trip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{max-width:440px;margin:0 auto;padding:10px 20px 24px}
+.storewarn{margin:0 0 12px;padding:10px 14px;background:#FBF3E4;border-radius:12px;color:#7A5410;font-size:.88rem;font-weight:500}
+.muted{color:var(--muted);font-size:.82rem}
+
+/* بطاقة رئيسية كبيرة */
+.ask{display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;color:#fff;
+  background:var(--green);border-radius:18px;padding:18px 20px;margin:0 0 16px;box-shadow:0 3px 0 var(--green-deep)}
+.ask:hover{background:#0C7449}
+.ask b{display:block;font-size:1.25rem}
+.ask small{display:block;opacity:.85;font-size:.9rem}
+.ask svg{flex:none}
+.badge{flex:none;min-width:34px;height:34px;padding:0 10px;border-radius:999px;background:#fff;color:var(--green-deep);display:grid;place-items:center;font-style:normal;font-weight:700}
+
+/* طلب أو رحلة جارية */
+.card{background:var(--field);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 16px}
+.card.now{border-color:var(--green)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.chip{display:inline-block;padding:2px 12px;border-radius:999px;background:#FBF3E4;color:#7A5410;font-size:.82rem;font-weight:700}
+.chip.ok{background:#EAF3EE;color:var(--green-deep)}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.route{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0 0 10px}
+.route i{font-style:normal;color:var(--muted);font-size:.85rem;padding-top:2px}
+.route b{font-weight:600;overflow-wrap:anywhere}
+.driver{margin:0 0 10px;color:var(--green-deep);font-weight:600;font-size:.92rem}
+.btn{display:block;text-align:center;text-decoration:none;border:1.5px solid var(--green);color:var(--green);font-weight:600;border-radius:12px;padding:10px}
+.btn:hover{background:#EAF3EE}
+
+.rate{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;color:#7A5410;background:#FBF3E4;
+  border:1.5px solid var(--gold);border-radius:14px;padding:12px 16px;margin:0 0 16px;font-size:.92rem;font-weight:500}
+.rate b{flex:none;color:var(--green-deep)}
+
+/* أقسام */
+.block{margin:0 0 20px}
+.head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.head h2{margin:0;font-size:1.05rem;color:var(--green)}
+.head a{color:var(--green);font-size:.88rem;font-weight:600;text-decoration:none}
+.hint{margin:0;padding:12px 14px;background:var(--field);border:1.5px dashed var(--line);border-radius:12px;color:var(--muted);font-size:.9rem}
+.hint a{color:var(--green);font-weight:600}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.fav{flex:none;max-width:70%;text-decoration:none;color:var(--green-deep);background:#EAF3EE;border:1.5px solid var(--green);
+  border-radius:14px;padding:8px 14px;font-weight:600;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fav:hover{background:var(--green);color:#fff}
+
+/* الرحلات الأخيرة */
+.trips{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.trip{display:block;text-decoration:none;color:inherit;background:var(--field);border:1.5px solid var(--line);border-radius:14px;padding:10px 14px}
+.trip .r{font-weight:600;overflow-wrap:anywhere}
+.trip .m{display:flex;justify-content:space-between;gap:10px;margin-top:2px;color:var(--muted);font-size:.84rem}
+.trip .m .s{font-weight:700}
+.s.completed{color:var(--green)}.s.cancelled{color:var(--maroon)}.s.pending,.s.accepted{color:#7A5410}
+.trip .stars{color:var(--gold);font-weight:600}
+
+/* الكابتن */
+.sub{display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;color:var(--green-deep);
+  background:#EAF3EE;border:1.5px solid var(--green);border-radius:14px;padding:12px 16px;margin:0 0 16px}
+.sub b{display:block}
+.sub small{display:block;font-size:.85rem;color:var(--muted)}
+.sub em{flex:none;font-style:normal;font-weight:700;font-size:.88rem;background:var(--green);color:#fff;border-radius:999px;padding:3px 14px}
+.sub.warn{background:#FBF3E4;border-color:var(--gold);color:#7A5410}
+.sub.warn em{background:var(--gold)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px}
+.stat{background:var(--field);border:1.5px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center}
+.stat b{display:block;font-size:1.3rem;color:var(--green);line-height:1.4}
+.stat span{font-size:.8rem;color:var(--muted)}
+
+.btn.map{background:#0B1B3A;border-color:#0B1B3A;color:#fff;margin-bottom:8px}
+.btn.map:hover{background:#13294f}

@@ -1,0 +1,9 @@
+/* ألوان وخطوط مشتركة بين كل الصفحات — ألوان الشعار */
+:root{
+  --bg:#FAFAF8; --ink:#141210;
+  --green:#0A6640; --green-deep:#064D2E; --maroon:#8E2B22; --gold:#B9822A;
+  --muted:#6B675F; --line:#D9D5CC; --field:#FFFFFF; --err:#B3261E;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A6640">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/request.css">
+<title>طلب ركشة — وسيلة</title>
+<link rel="stylesheet" href="css/nav.css">
+</head><body>
+<header class="bar">
+  <a class="back" href="home.html" aria-label="الرجوع للرئيسية">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <h1>طلب ركشة</h1>
+</header>
+
+<main>
+  <!-- حساب سائق -->
+  <section id="driverView" hidden class="panel">
+    <h2>هذه الصفحة للركاب</h2>
+    <p>حسابك مسجَّل كسائق ركشة، وطلبات الركوب يرسلها الركاب. ستظهر لك الطلبات هنا عند تفعيل لوحة السائق.</p>
+    <a class="cta as-link" href="home.html">الرجوع للرئيسية</a>
+  </section>
+
+  <!-- طلب قيد الانتظار -->
+  <section id="activeView" hidden class="panel">
+    <p class="status"><span class="dot" aria-hidden="true"></span><span id="aStatus">بانتظار سائق</span></p>
+    <h2 id="aTitle">تم إرسال طلبك</h2>
+    <dl class="trip">
+      <div><dt>من</dt><dd id="aFrom"></dd></div>
+      <div><dt>إلى</dt><dd id="aTo"></dd></div>
+      <div><dt>الركاب</dt><dd id="aPax"></dd></div>
+      <div><dt>الموعد</dt><dd id="aWhen"></dd></div>
+      <div><dt>الدفع</dt><dd id="aPay"></dd></div>
+      <div id="aDriverRow" hidden><dt>الكابتن</dt><dd id="aDriver"></dd></div>
+      <div id="aFareRow"><dt>السعر المقترح</dt><dd id="aFare"></dd></div>
+      <div id="aNotesRow"><dt>ملاحظات</dt><dd id="aNotes"></dd></div>
+    </dl>
+    <button class="share" id="shareLoc" type="button">شارك موقعي مع الكابتن</button>
+    <p class="hint" id="shareHint">يساعد الكابتن على الوصول إليك بدقة عبر الخرائط.</p>
+    <p class="hint">نقدر نلغي الطلب في أي وقت قبل ما يقبله سائق.</p>
+    <button class="danger" id="cancelBtn" type="button">إلغاء الطلب</button>
+    <p class="form-msg" id="aMsg" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- نموذج الطلب -->
+  <form id="reqForm" novalidate hidden>
+    <div class="field">
+      <label for="from">نقطة الانطلاق</label>
+      <div class="box" id="fromBox">
+        <input id="from" type="text" autocomplete="off" placeholder="مثال: سوق ليبيا، أمدرمان" aria-describedby="fromErr" maxlength="80">
+        <button type="button" class="toggle" id="locate">موقعي</button>
+      </div>
+      <p class="msg" id="fromErr" role="alert"></p>
+    </div>
+
+    <div class="field">
+      <label for="to">الوجهة</label>
+      <div class="box" id="toBox">
+        <input id="to" type="text" autocomplete="off" placeholder="مثال: جامعة الخرطوم" aria-describedby="toErr" maxlength="80">
+      </div>
+      <p class="msg" id="toErr" role="alert"></p>
+    </div>
+
+    <div class="field row2">
+      <div>
+        <span class="label" id="paxLabel">عدد الركاب</span>
+        <div class="stepper" role="group" aria-labelledby="paxLabel">
+          <button type="button" id="paxMinus" aria-label="أنقص راكباً">−</button>
+          <output id="paxOut" aria-live="polite">1</output>
+          <button type="button" id="paxPlus" aria-label="أضف راكباً">+</button>
+        </div>
+      </div>
+      <div>
+        <label for="fare">السعر المقترح (اختياري)</label>
+        <div class="box ltr" id="fareBox">
+          <input id="fare" type="number" inputmode="numeric" min="1" max="1000000" step="100" placeholder="0" aria-describedby="fareErr">
+          <span class="prefix suffix" dir="rtl">جنيه</span>
+        </div>
+      </div>
+      <p class="msg wide" id="fareErr" role="alert"></p>
+    </div>
+
+    <fieldset class="seg-group">
+      <legend>متى تحتاج الركشة؟</legend>
+      <div class="seg">
+        <label class="opt"><input type="radio" name="when" value="now" checked><span>الآن</span></label>
+        <label class="opt"><input type="radio" name="when" value="later"><span>وقت لاحق</span></label>
+      </div>
+      <div class="box later" id="laterBox" hidden>
+        <input id="whenAt" type="datetime-local" aria-label="موعد الرحلة" aria-describedby="whenErr">
+      </div>
+      <p class="msg" id="whenErr" role="alert"></p>
+    </fieldset>
+
+    <fieldset class="seg-group">
+      <legend>طريقة الدفع</legend>
+      <div class="seg">
+        <label class="opt"><input type="radio" name="pay" value="cash" checked><span>نقداً</span></label>
+        <label class="opt"><input type="radio" name="pay" value="bankak"><span>بنكك</span></label>
+      </div>
+    </fieldset>
+
+    <div class="field">
+      <label for="notes">ملاحظات للسائق (اختياري)</label>
+      <div class="box">
+        <textarea id="notes" rows="2" maxlength="140" placeholder="مثال: أنتظر عند البوابة الزرقاء"></textarea>
+      </div>
+    </div>
+
+    <button class="cta" id="submit" type="submit">إرسال الطلب</button>
+    <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+  </form>
+</main>
+
+<script src="js/store.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/request.js"></script>
+</body></html>

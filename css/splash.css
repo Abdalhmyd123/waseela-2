@@ -1,0 +1,32 @@
+:root{padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{height:100%;margin:0}
+body{transition:opacity .45s ease;background:var(--bg);color:var(--ink);display:grid;place-items:center;font-family:Montserrat,system-ui,sans-serif}
+svg{width:min(86vw,720px);height:auto;display:block;overflow:visible}
+
+/* ---- Colors from brand logo: green #0A6640 · maroon #8E2B22 · gold #B9822A ----
+   ---- Timeline (total 3.0s) ----
+   0.00-2.00  outlines draw themselves (stroke-dashoffset), right-to-left
+   1.60-2.35  solid block fades in around the drawn outlines
+   2.30-3.00  WASEELA + tagline rise in                                   */
+.s{fill:none;stroke:var(--c);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;
+   stroke-dasharray:1;stroke-dashoffset:1;
+   animation:draw var(--t) cubic-bezier(.65,0,.3,1) var(--d) forwards}
+.g{--c:var(--green)} .m{--c:var(--maroon)}
+.fill{fill:var(--c);fill-rule:evenodd;opacity:0;animation:fadeIn .75s ease 1.6s forwards}
+.strokes{animation:fadeOut .5s ease 1.85s forwards}
+.name,.tag{opacity:0;transform:translateY(24px);animation:rise .7s cubic-bezier(.2,.7,.2,1) 2.3s forwards}
+.tag{animation-delay:2.5s;animation-duration:.5s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes fadeOut{to{opacity:0}}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .s{animation:none;stroke-dashoffset:0} .strokes{display:none}
+  .fill,.name,.tag{animation:none;opacity:1;transform:none}}
+body.leave{opacity:0}
+body.leave{opacity:0}
+body.leave{opacity:0}
+button{position:fixed;inset-block-end:calc(16px + env(safe-area-inset-bottom,0px));inset-inline-start:16px;background:none;border:1px solid currentColor;color:var(--ink);border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer}
+button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+body{transition:opacity .45s ease}
+body.leave{opacity:0}

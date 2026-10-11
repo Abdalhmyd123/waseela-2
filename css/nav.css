@@ -1,0 +1,20 @@
+/* شريط التنقل السفلي الثابت — مشترك بين الصفحات الرئيسية للتطبيق */
+.bnav{--nav-bg:#0B1B3A;--nav-off:#8FA3BF;--nav-on:#34C77B;
+  position:fixed;inset-inline:0;bottom:0;z-index:20;background:var(--nav-bg);
+  padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:0 -2px 14px rgba(11,27,58,.28)}
+.bnav ul{list-style:none;margin:0 auto;padding:0 4px;max-width:520px;display:flex}
+.bnav li{flex:1;min-width:0}
+.bnav a{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  min-height:64px;padding:8px 2px 6px;color:var(--nav-off);text-decoration:none;
+  font-family:inherit;font-size:.72rem;font-weight:500;line-height:1.2;text-align:center;
+  -webkit-tap-highlight-color:transparent;transition:color .15s}
+.bnav svg{width:24px;height:24px;flex:none}
+.bnav a::before{content:"";position:absolute;top:0;width:28px;height:3px;border-radius:0 0 3px 3px;background:var(--nav-on);opacity:0;transition:opacity .15s}
+.bnav a[aria-current="page"]{color:var(--nav-on);font-weight:700}
+.bnav a[aria-current="page"]::before{opacity:1}
+.bnav a:hover{color:#C5D2E6}
+.bnav a[aria-current="page"]:hover{color:var(--nav-on)}
+.bnav a:focus-visible{outline:3px solid var(--gold);outline-offset:-3px;border-radius:10px}
+.bnav span{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.has-bnav{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+@media (prefers-reduced-motion:reduce){.bnav a,.bnav a::before{transition:none}}

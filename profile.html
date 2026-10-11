@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A6640">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/request.css">
+<link rel="stylesheet" href="css/profile.css">
+<title>الملف الشخصي — وسيلة</title>
+<link rel="stylesheet" href="css/nav.css">
+</head><body>
+<header class="bar">
+  <a class="back" href="home.html" aria-label="الرجوع للرئيسية">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </a>
+  <h1>الملف الشخصي</h1>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="avatar" id="avatar" aria-hidden="true"></div>
+    <h2 id="pName"></h2>
+    <p class="phone" id="pPhone" dir="ltr"></p>
+    <span class="role" id="pRole"></span>
+  </section>
+
+  <div class="stats" id="stats"></div>
+
+  <a class="subcard" id="subCard" href="subscription.html" hidden>
+    <span><b>الاشتراك</b><small id="subText"></small></span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </a>
+
+  <h3 class="sec">بياناتي</h3>
+  <form class="panel" id="infoForm" novalidate>
+    <div class="field">
+      <label for="name">الاسم</label>
+      <div class="box"><input id="name" type="text" maxlength="40" autocomplete="name"></div>
+    </div>
+    <div class="field">
+      <label>رقم الهاتف</label>
+      <div class="box ro"><input type="text" id="phoneRo" dir="ltr" readonly aria-readonly="true"></div>
+      <p class="hint">رقم الهاتف هو معرّف حسابك ولا يمكن تغييره.</p>
+    </div>
+    <div id="driverFields" hidden>
+      <div class="field">
+        <label for="vehicle">نوع الركشة / لونها (اختياري)</label>
+        <div class="box"><input id="vehicle" type="text" maxlength="30" placeholder="مثال: بجاج أخضر"></div>
+      </div>
+      <div class="field">
+        <label for="plate">رقم اللوحة (اختياري)</label>
+        <div class="box"><input id="plate" type="text" maxlength="15" dir="ltr"></div>
+      </div>
+    </div>
+    <button class="cta" type="submit">حفظ التعديلات</button>
+    <p class="form-msg" id="infoMsg" role="status" aria-live="polite"></p>
+  </form>
+
+  <h3 class="sec">الإعدادات</h3>
+  <section class="panel">
+    <fieldset class="seg-group" id="payGroup" hidden>
+      <legend>طريقة الدفع المفضّلة عند طلب ركشة</legend>
+      <div class="seg">
+        <label class="opt"><input type="radio" name="pay" value="cash"><span>نقداً</span></label>
+        <label class="opt"><input type="radio" name="pay" value="bankak"><span>بنكك</span></label>
+      </div>
+    </fieldset>
+    <label class="switch" id="instantRow" hidden>
+      <span><b>الطلبات الفورية فقط</b><small>إخفاء الطلبات المجدولة من قائمة الطلبات المتاحة.</small></span>
+      <input type="checkbox" id="instant" role="switch">
+      <i aria-hidden="true"></i>
+    </label>
+    <p class="form-msg ok" id="setMsg" role="status" aria-live="polite"></p>
+  </section>
+
+  <h3 class="sec">الأمان</h3>
+  <form class="panel" id="passForm" novalidate>
+    <div class="field" id="oldPassField">
+      <label for="oldPass">كلمة المرور الحالية</label>
+      <div class="box"><input id="oldPass" type="password" autocomplete="current-password"></div>
+    </div>
+    <div class="field">
+      <label for="newPass">كلمة المرور الجديدة</label>
+      <div class="box"><input id="newPass" type="password" autocomplete="new-password"></div>
+      <p class="hint">6 أحرف أو أكثر.</p>
+    </div>
+    <button class="cta" type="submit" id="passBtn">تغيير كلمة المرور</button>
+    <p class="form-msg" id="passMsg" role="status" aria-live="polite"></p>
+  </form>
+
+  <button class="out" id="logout" type="button">تسجيل الخروج</button>
+
+  <details class="del">
+    <summary>حذف الحساب</summary>
+    <form id="delForm" novalidate>
+      <p>سيُحذف حسابك وطلباتك واشتراكك من هذا الجهاز نهائياً.</p>
+      <div class="box" id="delPassBox"><input id="delPass" type="password" autocomplete="current-password" placeholder="اكتب كلمة المرور للتأكيد" aria-label="كلمة المرور للتأكيد"></div>
+      <button class="danger" type="submit">احذف حسابي نهائياً</button>
+      <p class="form-msg" id="delMsg" role="status" aria-live="polite"></p>
+    </form>
+  </details>
+</main>
+
+<script src="js/store.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/profile.js"></script>
+</body></html>
